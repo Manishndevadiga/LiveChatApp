@@ -1,0 +1,189 @@
+
+
+.mainContainer {
+    width: 100%;
+    max-width: 600px;
+
+    height: 100dvh;
+    max-height: 800px;
+
+    margin: 0 auto;
+
+    display: flex;
+    flex-direction: column;
+
+    background-color: #fff;
+    overflow: hidden;
+
+    border: 1px solid #e5e7eb;
+}
+
+
+.headerOfChat {
+    padding: 15px;
+    border-bottom: 1px solid #4F46E5;
+    font-weight: bold;
+    background-color: #1E1B4B;
+    color: #FFFFFF;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.headerButtons {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+
+.feedbackButton {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 8px;
+    border-radius: 50%;
+}
+
+.feedbackButton:hover {
+    background-color: #f0f0f0;
+}
+
+.feedbackButton svg {
+    font-size: 25px;
+}
+
+.enableNotificationsButton,
+.logoutButton {
+    background: transparent;
+    border: 1px solid #FFFFFF;
+    color: #FFFFFF;
+    padding: 6px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.enableNotificationsButton:hover,
+.logoutButton:hover {
+    background-color: #FFFFFF;
+    color: #1E1B4B;
+}
+
+/* This is the important part */
+.chatContainer {
+    flex: 1;
+    overflow-y: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    height: 80vh;
+    background-color: #F4F6FA;
+}
+
+/* Common message style */
+.message {
+    max-width: 70%;
+    padding: 10px 14px;
+    border-radius: 12px;
+    word-wrap: break-word;
+}
+
+/* Other person's message */
+.otherMessage {
+    align-self: flex-start;
+    background-color: #FFFFFF;
+    border: 1px solid #E2E8F0;
+    color: #1F2937;
+}
+
+/* Your message */
+.myMessage {
+    align-self: flex-end;
+    background-color: #4F46E5;
+    color: #FFFFFF;
+    /* border: 1px solid #4F46E5; */
+}
+
+/* Message input area */
+.messageInputContainer {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    padding: 12px 16px;
+
+    background-color: #ffffff;
+    border-top: 1px solid #e5e7eb;
+}
+
+/* Message input */
+.messageInputContainer input {
+    flex: 1;
+
+    height: 42px;
+    padding: 0 16px;
+
+    border: 1px solid #d1d5db;
+
+    border-radius: 22px;
+
+    outline: none;
+
+    font-size: 14px;
+    color: #1f2937;
+
+    background-color: #f9fafb;
+
+    transition: all 0.2s ease;
+}
+
+/* Placeholder */
+.messageInputContainer input::placeholder {
+    color: #9ca3af;
+}
+
+/* Input focus */
+.messageInputContainer input:focus {
+    border-color: #89CFF0;
+    background-color: #ffffff;
+
+    box-shadow: 0 0 0 3px rgba(137, 207, 240, 0.2);
+}
+
+/* Send button */
+.messageInputContainer button {
+    height: 42px;
+    padding: 0 20px;
+
+    border: none;
+    border-radius: 22px;
+
+    background-color: #4F46E5;
+    color: #ffffff;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: all 0.2s ease;
+}
+
+/* Hover */
+.messageInputContainer button:hover {
+    background-color: #4338CA;
+}
+
+/* Click */
+.messageInputContainer button:active {
+    transform: scale(0.96);
+}
