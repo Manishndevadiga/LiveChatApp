@@ -64,7 +64,8 @@ function Chat({ user, setUser }) {
 
     // 2. Connect to WebSocket for NEW messages
     useEffect(() => {
-        const ws = new WebSocket("ws://localhost:4000");
+        // const ws = new WebSocket("ws://localhost:4000");
+        const ws = new WebSocket(import.meta.env.VITE_WS_URL);
 
         socketRef.current = ws;
 
