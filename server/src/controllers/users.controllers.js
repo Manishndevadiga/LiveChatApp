@@ -43,7 +43,7 @@ const generateAccessAndRefreshTokens = async (userID) => {
 const checkAuth = asyncHandler(async (req, res) => {
     console.log("Cookies:", req.cookies);
 
-    const accessToken = req.cookies.accessToken;
+    const accessToken = req?.cookies?.accessToken;
 
     console.log("Access token:", accessToken);
 
@@ -115,11 +115,21 @@ const userSignup = asyncHandler(async (req, res) => {
         "-password"
     );
 
+
+    // For local development
+    // const cookieOptions = {
+    //     httpOnly: true,
+    //     secure: false, // true in production with HTTPS
+    //     sameSite: "Strict",
+    //     maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
+    // };
+
+    // for production with HTTPS, you might want to use:
     const cookieOptions = {
         httpOnly: true,
-        secure: false, // true in production with HTTPS
-        sameSite: "Strict",
-        maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
+        secure: true,
+        sameSite: "none",
+        maxAge: 7 * 24 * 60 * 60 * 1000,
     };
 
     return res
@@ -171,12 +181,21 @@ const userLogin = asyncHandler(async (req, res) => {
     ).select("-password -refreshToken");
 
     // Cookie options
+    // const cookieOptions = {
+    //     httpOnly: true,
+    //     secure: false,
+    //     sameSite: "Strict",
+    //     maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
+    // };
+
+    // for production with HTTPS, you might want to use:
     const cookieOptions = {
         httpOnly: true,
-        secure: false,
-        sameSite: "Strict",
-        maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
+        secure: true,
+        sameSite: "none",
+        maxAge: 7 * 24 * 60 * 60 * 1000,
     };
+
 
     // Set cookies and return user
     return res
@@ -210,10 +229,20 @@ const userLogout = asyncHandler(async (req, res) => {
         }
     );
 
+    // for production with HTTPS, you might want to use:
+    // const cookieOptions = {
+    //     httpOnly: true,
+    //     secure: false, // true in production with HTTPS
+    //     sameSite: "Strict",
+    // };
+
+
+    // for production with HTTPS, you might want to use:
     const cookieOptions = {
         httpOnly: true,
-        secure: false, // true in production with HTTPS
-        sameSite: "Strict",
+        secure: true,
+        sameSite: "none",
+        maxAge: 7 * 24 * 60 * 60 * 1000,
     };
 
     return res
