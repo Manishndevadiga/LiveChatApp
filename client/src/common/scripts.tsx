@@ -1,6 +1,8 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:4000/api";
+// const API_URL = "http://localhost:4000/api";
+
+const API_URL = "https://livechatapp-qclt.onrender.com/api";
 
 const callApi = async (path:any, method = "GET", data = {}) => {
   try {

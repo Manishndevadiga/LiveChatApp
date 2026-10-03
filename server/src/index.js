@@ -25,7 +25,11 @@ const startServer = async () => {
         await connectDB();
 
         // 2. Start HTTP + WebSocket server
-        server.listen(PORT, () => {
+        // server.listen(PORT, () => {
+        //     console.log(`Server is running at port : ${PORT}`);
+        // });
+
+        server.listen(PORT, "0.0.0.0", () => {
             console.log(`Server is running at port : ${PORT}`);
         });
 
